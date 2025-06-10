@@ -1,0 +1,132 @@
+/* css/style.css */
+
+/* --- Biến CSS để dễ dàng thay đổi màu sắc --- */
+:root {
+    --bg-light: #e0e5ec;
+    --bg-dark: #2c2c2c;
+    --text-light: #555;
+    --text-dark: #e0e0e0;
+    --primary-color-light: #007bff;
+    --primary-color-dark: #00ff9d;
+    --shadow-light-1: #a3b1c6;
+    --shadow-light-2: #ffffff;
+    --shadow-dark-1: #1e1e1e;
+    --shadow-dark-2: #3a3a3a;
+}
+
+/* --- Chế độ Sáng (Mặc định) --- */
+body {
+    --bg-color: var(--bg-light);
+    --text-color: var(--text-light);
+    --primary-color: var(--primary-color-light);
+    --shadow-1: var(--shadow-light-1);
+    --shadow-2: var(--shadow-light-2);
+}
+
+/* --- Chế độ Tối (Khi body có class 'dark-theme') --- */
+body.dark-theme {
+    --bg-color: var(--bg-dark);
+    --text-color: var(--text-dark);
+    --primary-color: var(--primary-color-dark);
+    --shadow-1: var(--shadow-dark-1);
+    --shadow-2: var(--shadow-dark-2);
+}
+
+/* --- Style chung --- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-container {
+    width: 90%;
+    max-width: 500px;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.greeting {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.control-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    box-shadow: 5px 5px 10px var(--shadow-1), -5px -5px 10px var(--shadow-2);
+    transition: all 0.2s ease-in-out;
+}
+
+.control-button:active {
+    box-shadow: inset 5px 5px 10px var(--shadow-1), inset -5px -5px 10px var(--shadow-2);
+    font-size: 0.9em;
+}
+
+.control-button svg {
+    stroke: var(--text-color);
+}
+
+.clock-wrapper {
+    text-align: center;
+    background-color: var(--bg-color);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 15px 15px 30px var(--shadow-1), -15px -15px 30px var(--shadow-2);
+}
+
+.time {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--primary-color);
+}
+
+.date {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 480px) {
+    .time {
+        font-size: 3rem;
+    }
+    .greeting, .date {
+        font-size: 1rem;
+    }
+    .clock-wrapper {
+        padding: 30px;
+    }
+}

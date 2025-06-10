@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ví dụ về lời chào</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #greeting {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Xin chào! Đây là một ví dụ về lời chào dựa trên thời gian.</h1>
+        <p id="greeting">Chào mừng bạn đến với trang web của chúng tôi!</p>
+    </div>
+
+    <script type="text/javascript">
+        // Lấy thời gian hiện tại
+        var d = new Date();
+        var time = d.getHours();
+        var greetingElement = document.getElementById('greeting');
+
+        // Kiểm tra thời gian và hiển thị lời chào phù hợp
+        if (time < 10) {
+            greetingElement.textContent = "Good morning! Chúc bạn một ngày tốt lành.";
+        } else if (time < 18) {
+            greetingElement.textContent = "Good afternoon! Chúc bạn một buổi chiều vui vẻ.";
+        } else {
+            greetingElement.textContent = "Good evening! Chúc bạn một buổi tối thoải mái.";
+        }
+    </script>
+</body>
+</html>

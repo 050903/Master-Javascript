@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Tìm Kiếm</title>
+    <script type="text/javascript" src="checksearch.js"></script>
+    <style>
+        /* --- Cài đặt chung cho toàn trang --- */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            /* Sử dụng Flexbox để căn giữa mọi thứ */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* --- Tạo hộp chứa chính --- */
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 500px;
+        }
+
+        h1 {
+            color: #1c1e21;
+            margin-bottom: 25px;
+        }
+
+        /* --- Định dạng cho form --- */
+        form {
+            display: flex; /* Sắp xếp ô input và nút bấm nằm ngang */
+            gap: 10px; /* Tạo khoảng cách giữa chúng */
+        }
+
+        /* --- Định dạng cho ô nhập từ khóa --- */
+        #tukhoa {
+            flex-grow: 1; /* Cho phép ô input co giãn chiếm hết không gian còn lại */
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            outline: none; /* Bỏ viền xanh khi focus */
+            transition: border-color 0.2s;
+        }
+
+        /* Hiệu ứng khi nhấn chuột vào ô input */
+        #tukhoa:focus {
+            border-color: #1877f2; /* Đổi màu viền sang xanh dương */
+        }
+
+        /* --- Định dạng cho nút bấm "TÌM" --- */
+        #btntim {
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #1877f2; /* Màu xanh dương của Facebook */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        /* Hiệu ứng khi di chuột qua nút bấm */
+        #btntim:hover {
+            background-color: #166fe5; /* Màu xanh đậm hơn một chút */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tìm kiếm sản phẩm</h1>
+
+        <form onsubmit="return checksearch();" id="formtim" name="formtim" action="kqtim.html" method="get">
+            
+            <input 
+                onclick="if(this.value=='Tìm kiếm') this.value=''"
+                onblur="if(this.value=='') this.value='Tìm kiếm'"
+                name="tukhoa" 
+                id="tukhoa" 
+                type="text" 
+                value="Tìm kiếm"
+            />
+            
+            <input 
+                name="btntim" 
+                id="btntim" 
+                type="submit" 
+                value="TÌM"
+            />
+            
+        </form>
+    </div>
+
+</body>
+</html>

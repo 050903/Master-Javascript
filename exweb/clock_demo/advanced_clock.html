@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng Hồ Chuyên Nghiệp</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #121212;
+            margin: 0;
+            color: #e0e0e0;
+        }
+
+        .clock-container {
+            text-align: center;
+            background: linear-gradient(145deg, #1e1e1e, #1a1a1a);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px #0c0c0c, -10px -10px 20px #282828;
+        }
+
+        .time {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            letter-spacing: 5px;
+            color: #00ff9d;
+            text-shadow: 0 0 20px #00ff9d;
+        }
+
+        .date {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: #a0a0a0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="clock-container">
+        <div id="time-display" class="time"></div>
+        <div id="date-display" class="date"></div>
+    </div>
+
+    <script>
+        // Hàm để thêm số 0 vào trước các số nhỏ hơn 10 (ví dụ: 7 -> "07")
+        function formatTimeUnit(unit) {
+            return unit < 10 ? '0' + unit : unit;
+        }
+
+        // Hàm chính để cập nhật đồng hồ
+        function updateClock() {
+            const now = new Date();
+
+            // Lấy và định dạng các đơn vị thời gian
+            const hours = formatTimeUnit(now.getHours());
+            const minutes = formatTimeUnit(now.getMinutes());
+            const seconds = formatTimeUnit(now.getSeconds());
+
+            // Lấy và định dạng các đơn vị ngày tháng
+            const day = formatTimeUnit(now.getDate());
+            const month = formatTimeUnit(now.getMonth() + 1); // Nhớ +1 cho tháng
+            const year = now.getFullYear();
+
+            // Lấy các phần tử HTML
+            const timeElement = document.getElementById('time-display');
+            const dateElement = document.getElementById('date-display');
+
+            // Cập nhật nội dung HTML
+            timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+            dateElement.textContent = `${day}/${month}/${year}`;
+        }
+
+        // Chạy hàm cập nhật lần đầu tiên ngay lập tức khi tải trang
+        updateClock();
+
+        // Sau đó, đặt lịch để nó tự cập nhật mỗi giây
+        setInterval(updateClock, 1000);
+    </script>
+
+</body>
+</html>

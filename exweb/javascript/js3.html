@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Hoàn Chỉnh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .blinking-text {
+            font-size: 28px;
+            color: #FF5733;
+            height: 30px;
+            animation: blink-animation 1s steps(5, start) infinite;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chào mừng đến với Trang Web của Tôi</h1>
+    </header>
+    <nav>
+        <a href="#home">Trang Chủ</a>
+        <a href="#about">Giới Thiệu</a>
+        <a href="#services">Dịch Vụ</a>
+        <a href="#contact">Liên Hệ</a>
+    </nav>
+    <div class="container">
+        <h2>Nội dung chính của trang web</h2>
+        <button onclick="showWelcomeMessage()">Nhấn vào tôi</button>
+        <div class="blinking-text">Xin chào! Hiệu ứng nhấp nháy ở đây!</div>
+        <p>Đây là một đoạn văn bản mẫu để hiển thị nội dung trên trang web của bạn.</p>
+    </div>
+    <footer>
+        <p>&copy; 2023 Trang Web của Tôi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showWelcomeMessage() {
+            alert("Xin chào! Chào mừng bạn đến với trang web của tôi.");
+        }
+    </script>
+</body>
+</html>

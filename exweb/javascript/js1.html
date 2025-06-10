@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web với Hiệu Ứng Nhấp Nháy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .blinking-text {
+            font-size: 24px;
+            color: #333;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="showWelcomeMessage()">Nhấn vào tôi</button>
+    <div class="blinking-text" id="blink">Hiệu ứng sẽ xuất hiện ở đây</div>
+
+    <script>
+        function showWelcomeMessage() {
+            alert("Xin chào! Chào mừng bạn đến với trang web của tôi.");
+        }
+
+        function blinkText() {
+            const blink = document.getElementById('blink');
+            if (blink.style.visibility === 'hidden') {
+                blink.style.visibility = 'visible';
+            } else {
+                blink.style.visibility = 'hidden';
+            }
+        }
+
+        setInterval(blinkText, 500); // Thay đổi văn bản mỗi 500ms
+    </script>
+</body>
+</html>

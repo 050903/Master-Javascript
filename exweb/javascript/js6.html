@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ví dụ về lời chào</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        #greeting {
+            font-size: 26px;
+            margin: 25px 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .clock {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #7f8c8d;
+        }
+        .icon {
+            font-size: 50px;
+            margin: 20px 0;
+            color: #3498db;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <i class="fas fa-sun"></i>
+        </div>
+        <h1>Xin chào! Đây là một ví dụ về lời chào dựa trên thời gian.</h1>
+        <p id="greeting">Chào mừng bạn đến với trang web của chúng tôi!</p>
+        <div class="clock" id="clock"></div>
+    </div>
+
+    <script type="text/javascript">
+        function updateGreeting() {
+            var d = new Date();
+            var time = d.getHours();
+            var greetingElement = document.getElementById('greeting');
+            var icon = document.querySelector('.icon i');
+
+            if (time < 10) {
+                greetingElement.textContent = "Good morning! Chúc bạn một ngày tốt lành.";
+                icon.className = "fas fa-sun";
+            } else if (time < 18) {
+                greetingElement.textContent = "Good afternoon! Chúc bạn một buổi chiều vui vẻ.";
+                icon.className = "fas fa-cloud-sun";
+            } else {
+                greetingElement.textContent = "Good evening! Chúc bạn một buổi tối thoải mái.";
+                icon.className = "fas fa-moon";
+            }
+        }
+
+        function updateClock() {
+            var now = new Date();
+            var clockElement = document.getElementById('clock');
+            clockElement.textContent = "Thời gian hiện tại: " + now.toLocaleTimeString();
+        }
+
+        updateGreeting();
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* css/style.css */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+}
+.form-container, .redirect-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+h1 { color: #1c1e21; margin-bottom: 10px; }
+p { color: #65676b; font-size: 1.1rem; }
+/* Form Styles */
+.input-group { text-align: left; margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+.btn-submit {
+    width: 100%; padding: 14px; font-size: 1rem; font-weight: bold;
+    color: white; background-color: #1877f2; border: none;
+    border-radius: 6px; cursor: pointer;
+}
+/* Thank You Page Styles */
+.icon-success {
+    width: 80px; height: 80px; border-radius: 50%; background-color: #e8f5e9;
+    color: #4CAF50; font-size: 3rem; font-weight: bold;
+    display: flex; justify-content: center; align-items: center;
+    margin: 0 auto 20px;
+}
+.redirect-container h1 { color: #4CAF50; }
+.sub-text { font-size: 1rem; color: #65676b; }
+#countdown { font-weight: bold; color: #1c1e21; }
+.manual-link { display: inline-block; margin-top: 20px; color: #65676b; font-size: 0.9rem; }

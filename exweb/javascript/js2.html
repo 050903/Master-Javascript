@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web với Hiệu Ứng Nhấp Nháy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+            text-align: center;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .blinking-text {
+            font-size: 28px;
+            color: #FF5733;
+            height: 30px;
+            animation: blink-animation 1s steps(5, start) infinite;
+            font-weight: bold;
+        }
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+        .additional-effects {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="showWelcomeMessage()">Nhấn vào tôi</button>
+    <div class="blinking-text">Xin chào! Hiệu ứng nhấp nháy ở đây!</div>
+    <div class="additional-effects">Cảm ơn bạn đã ghé thăm trang web của tôi!</div>
+
+    <script>
+        function showWelcomeMessage() {
+            alert("Xin chào! Chào mừng bạn đến với trang web của tôi.");
+        }
+    </script>
+</body>
+</html>

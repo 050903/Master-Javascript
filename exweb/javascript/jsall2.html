@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng Test JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .app-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #e9f7fe;
+            display: none;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .success {
+            color: green;
+            font-size: 16px;
+        }
+        .fade-in {
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1>Ứng dụng Test JavaScript</h1>
+
+        <h2>Xử lý sự kiện</h2>
+        <button id="eventButton">Nhấn vào tôi</button>
+        <div id="eventOutput"></div>
+
+        <h2>Thao tác DOM</h2>
+        <button id="domButton">Thay đổi nội dung</button>
+        <div id="domOutput">Nội dung ban đầu</div>
+
+        <h2>Xác thực và Hiệu ứng</h2>
+        <div class="form-group">
+            <label for="name">Tên:</label>
+            <input type="text" id="name" placeholder="Nhập tên của bạn">
+            <div id="nameError" class="error"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Nhập email của bạn">
+            <div id="emailError" class="error"></div>
+        </div>
+        <button id="submitButton">Gửi</button>
+        <div id="validationOutput"></div>
+    </div>
+
+    <script>
+        // Xử lý sự kiện
+        document.getElementById('eventButton').addEventListener('click', function() {
+            document.getElementById('eventOutput').textContent = 'Bạn đã nhấn vào nút!';
+        });
+
+        // Thao tác DOM
+        document.getElementById('domButton').addEventListener('click', function() {
+            const domOutput = document.getElementById('domOutput');
+            domOutput.innerHTML = 'Nội dung đã được thay đổi bằng JavaScript!';
+            domOutput.style.color = '#007BFF';
+        });
+
+        // Xác thực và Hiệu ứng
+        document.getElementById('submitButton').addEventListener('click', function() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const validationOutput = document.getElementById('validationOutput');
+
+            // Reset errors
+            nameError.textContent = '';
+            emailError.textContent = '';
+
+            // Validate inputs
+            let isValid = true;
+            if (name === '') {
+                nameError.textContent = 'Tên không được để trống.';
+                isValid = false;
+            }
+            if (email === '') {
+                emailError.textContent = 'Email không được để trống.';
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                emailError.textContent = 'Email không hợp lệ.';
+                isValid = false;
+            }
+
+            if (isValid) {
+                validationOutput.innerHTML = `<p class="success fade-in">Xin chào, ${name}! Email của bạn là ${email}.</p>`;
+                validationOutput.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

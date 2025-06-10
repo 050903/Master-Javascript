@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Responsive Site</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">ProSite</div>
+            <nav class="main-nav">
+                <a href="#">Trang Chủ</a>
+                <a href="#">Giới Thiệu</a>
+                <a href="#">Dịch Vụ</a>
+                <a href="#">Liên Hệ</a>
+            </nav>
+            <div class="header-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Icon sẽ được chèn bằng JS -->
+                </button>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="content-layout">
+                <article class="main-content">
+                    <h1>Thiết Kế Web Đáp Ứng Chuyên Nghiệp</h1>
+                    <p>Đây là một ví dụ về một trang web hiện đại, được xây dựng với các kỹ thuật responsive tiên tiến. Nội dung sẽ tự động điều chỉnh để mang lại trải nghiệm tốt nhất trên mọi thiết bị, từ điện thoại di động, máy tính bảng cho đến máy tính để bàn.</p>
+                    
+                    <!-- ===== DÒNG ĐÃ ĐƯỢC CẬP NHẬT ===== -->
+                    <img src="image/rp.jpg" alt="Ảnh minh họa responsive" class="responsive-image">
+                    
+                    <h2>Tại sao Responsive lại quan trọng?</h2>
+                    <p>Trong thế giới ngày nay, người dùng truy cập web từ vô số thiết bị với kích thước màn hình khác nhau. Một trang web responsive đảm bảo rằng thông điệp của bạn được truyền tải một cách rõ ràng và hiệu quả, bất kể người dùng đang ở đâu hay sử dụng thiết bị gì.</p>
+                    <p>Hãy thử thay đổi kích thước cửa sổ trình duyệt này để xem điều kỳ diệu xảy ra. Trên màn hình nhỏ, menu điều hướng sẽ được thu gọn thành một nút "hamburger", và layout sẽ được sắp xếp lại thành một cột duy nhất để dễ đọc hơn.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam. </p>
+                </article>
+                <aside class="sidebar">
+                    <h3>Bài viết liên quan</h3>
+                    <ul>
+                        <li><a href="#">CSS Flexbox là gì?</a></li>
+                        <li><a href="#">Hướng dẫn CSS Grid</a></li>
+                        <li><a href="#">Tối ưu hóa hiệu suất web</a></li>
+                        <li><a href="#">Nguyên tắc thiết kế UI/UX</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 ProSite. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+        <!-- Icon mũi tên lên -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

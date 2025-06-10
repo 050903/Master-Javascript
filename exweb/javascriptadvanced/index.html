@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trình diễn JavaScript Master - [Tên của bạn]</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Trình diễn JavaScript Master</h1>
+        <p>Khám phá các tính năng và khái niệm cốt lõi của JavaScript</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#intro">Giới thiệu</a></li>
+            <li><a href="#basics">Cơ bản</a></li>
+            <li><a href="#functions">Hàm & Closure</a></li>
+            <li><a href="#oop">Lập trình hướng đối tượng</a></li>
+            <li><a href="#async">Bất đồng bộ</a></li>
+            <li><a href="#dom">DOM & Sự kiện</a></li>
+            <li><a href="#fetch">Fetch API</a></li>
+            <li><a href="#modules">Modules (ví dụ)</a></li>
+            <li><a href="#advanced">Khái niệm nâng cao</a></li>
+            <li><a href="#projects">Dự án của tôi</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="intro">
+            <h2>Giới thiệu về JavaScript</h2>
+            <p>JavaScript là một ngôn ngữ lập trình mạnh mẽ và linh hoạt, chủ yếu được sử dụng để phát triển web frontend, nhưng cũng mở rộng sang backend (Node.js), di động (React Native) và nhiều lĩnh vực khác.</p>
+            <p>Trang này sẽ minh họa các khía cạnh quan trọng của JavaScript, từ cơ bản đến nâng cao, với các ví dụ tương tác.</p>
+        </section>
+
+        <section id="basics">
+            <h2>1. Các khái niệm cơ bản</h2>
+
+            <h3>1.1. Kiểu dữ liệu & Biến</h3>
+            <p>JavaScript có các kiểu dữ liệu nguyên thủy (String, Number, Boolean, Null, Undefined, Symbol, BigInt) và kiểu đối tượng (Object).</p>
+            <pre><code>
+// Khai báo biến với var, let, const
+var oldVar = "Tôi là var (scope hàm)";
+let newLet = "Tôi là let (scope khối)";
+const immutableConst = "Tôi là const (không thay đổi được)";
+
+// Kiểu dữ liệu
+let str = "Hello";         // String
+let num = 123;             // Number
+let bool = true;           // Boolean
+let n = null;              // Null
+let u = undefined;         // Undefined
+let sym = Symbol("id");    // Symbol
+let bigInt = 123n;         // BigInt
+
+let obj = { key: "value" }; // Object
+let arr = [1, 2, 3];        // Array (là một dạng của Object)
+
+console.log("Kiểu của 'str':", typeof str);
+console.log("Giá trị của 'obj.key':", obj.key);
+            </code></pre>
+            <button onclick="runBasicVariablesExample()">Chạy ví dụ</button>
+            <div class="output" id="basic-vars-output"></div>
+
+            <h3>1.2. Toán tử & Cấu trúc điều khiển</h3>
+            <p>Ví dụ về toán tử số học, so sánh, logic và câu lệnh điều kiện.</p>
+            <pre><code>
+let a = 10, b = 5;
+let sum = a + b; // Toán tử số học
+let isEqual = (a === b); // Toán tử so sánh nghiêm ngặt
+
+if (sum > 10 && isEqual === false) { // Toán tử logic
+    console.log("Tổng lớn hơn 10 và a không bằng b.");
+} else if (sum === 15) {
+    console.log("Tổng bằng 15.");
+} else {
+    console.log("Điều kiện khác.");
+}
+
+for (let i = 0; i < 3; i++) {
+    console.log("Vòng lặp For:", i);
+}
+
+let count = 0;
+while (count < 2) {
+    console.log("Vòng lặp While:", count);
+    count++;
+}
+            </code></pre>
+            <button onclick="runBasicOperatorsExample()">Chạy ví dụ</button>
+            <div class="output" id="basic-ops-output"></div>
+        </section>
+
+        <section id="functions">
+            <h2>2. Hàm & Closure</h2>
+
+            <h3>2.1. Định nghĩa Hàm</h3>
+            <p>Cách định nghĩa hàm trong JavaScript.</p>
+            <pre><code>
+// Function Declaration
+function greet(name) {
+    return "Xin chào, " + name + "!";
+}
+console.log(greet("Minh"));
+
+// Function Expression
+const sayHello = function(name) {
+    return `Hello, ${name}!`;
+};
+console.log(sayHello("An"));
+
+// Arrow Function (ES6)
+const add = (a, b) => a + b;
+console.log("Tổng của 5 và 3 là:", add(5, 3));
+            </code></pre>
+            <button onclick="runFunctionDefinitionExample()">Chạy ví dụ</button>
+            <div class="output" id="function-def-output"></div>
+
+            <h3>2.2. Closure</h3>
+            <p>Closure là khả năng của một hàm ghi nhớ và truy cập các biến của phạm vi bên ngoài nó, ngay cả khi phạm vi bên ngoài đã kết thúc.</p>
+            <pre><code>
+function makeCounter() {
+    let count = 0;
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+const counter1 = makeCounter();
+console.log("Counter 1:", counter1()); // 1
+console.log("Counter 1:", counter1()); // 2
+
+const counter2 = makeCounter();
+console.log("Counter 2:", counter2()); // 1 (riêng biệt với counter1)
+            </code></pre>
+            <button onclick="runClosureExample()">Chạy ví dụ</button>
+            <div class="output" id="closure-output"></div>
+
+            <h3>2.3. Hàm bậc cao (Higher-Order Functions)</h3>
+            <p>Hàm nhận một hoặc nhiều hàm khác làm đối số, hoặc trả về một hàm.</p>
+            <pre><code>
+const numbers = [1, 2, 3, 4, 5];
+
+// map: tạo mảng mới bằng cách áp dụng hàm cho mỗi phần tử
+const doubled = numbers.map(num => num * 2);
+console.log("Doubled:", doubled); // [2, 4, 6, 8, 10]
+
+// filter: tạo mảng mới chứa các phần tử thỏa mãn điều kiện
+const evens = numbers.filter(num => num % 2 === 0);
+console.log("Evens:", evens); // [2, 4]
+
+// reduce: áp dụng hàm tích lũy cho mỗi phần tử để giảm mảng về một giá trị duy nhất
+const sumAll = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log("Sum:", sumAll); // 15
+            </code></pre>
+            <button onclick="runHigherOrderFunctionsExample()">Chạy ví dụ</button>
+            <div class="output" id="hof-output"></div>
+        </section>
+
+        <section id="oop">
+            <h2>3. Lập trình hướng đối tượng (OOP)</h2>
+
+            <h3>3.1. Đối tượng và Prototype</h3>
+            <p>JavaScript là ngôn ngữ dựa trên prototype. Mỗi đối tượng có một prototype, và thừa kế thuộc tính/phương thức từ nó.</p>
+            <pre><code>
+const animal = {
+    walk() {
+        console.log("Đang đi...");
+    }
+};
+
+const dog = {
+    bark() {
+        console.log("Gâu gâu!");
+    }
+};
+
+// Gán prototype
+Object.setPrototypeOf(dog, animal);
+dog.walk(); // Kế thừa từ animal
+dog.bark();
+            </code></pre>
+            <button onclick="runPrototypeExample()">Chạy ví dụ</button>
+            <div class="output" id="prototype-output"></div>
+
+            <h3>3.2. Class (ES6)</h3>
+            <p>Cú pháp Class cung cấp một cách viết OOP quen thuộc hơn, nhưng vẫn dựa trên prototype.</p>
+            <pre><code>
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    speak() {
+        console.log(`${this.name} tạo ra âm thanh.`);
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name); // Gọi constructor của lớp cha
+        this.breed = breed;
+    }
+    speak() {
+        console.log(`${this.name} (${this.breed}) gâu gâu!`);
+    }
+}
+
+const myDog = new Dog("Buddy", "Golden Retriever");
+myDog.speak(); // "Buddy (Golden Retriever) gâu gâu!"
+            </code></pre>
+            <button onclick="runClassExample()">Chạy ví dụ</button>
+            <div class="output" id="class-output"></div>
+        </section>
+
+        <section id="async">
+            <h2>4. Lập trình bất đồng bộ (Asynchronous JavaScript)</h2>
+            <p>JavaScript là đơn luồng, nhưng có thể xử lý các tác vụ không đồng bộ (như gọi API, hẹn giờ) mà không làm chặn luồng chính.</p>
+
+            <h3>4.1. Callbacks</h3>
+            <p>Hàm được truyền làm đối số và sẽ được gọi lại sau khi tác vụ hoàn thành.</p>
+            <pre><code>
+function fetchData(callback) {
+    setTimeout(() => {
+        const data = "Dữ liệu đã được tải.";
+        callback(data);
+    }, 1000); // Giả lập tải dữ liệu mất 1 giây
+}
+
+console.log("Bắt đầu tải dữ liệu...");
+fetchData(function(data) {
+    console.log("Callback nhận được:", data);
+});
+console.log("Tiếp tục các tác vụ khác...");
+            </code></pre>
+            <button onclick="runCallbacksExample()">Chạy ví dụ</button>
+            <div class="output" id="callbacks-output"></div>
+
+            <h3>4.2. Promises & async/await</h3>
+            <p>Promises cung cấp cách quản lý bất đồng bộ tốt hơn callback. `async/await` là cú pháp hiện đại giúp viết code bất đồng bộ trông như đồng bộ.</p>
+            <pre><code>
+function getDataPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const success = true; // Thử thay đổi thành false để xem reject
+            if (success) {
+                resolve("Dữ liệu đã được tải thành công từ Promise.");
+            } else {
+                reject("Tải dữ liệu thất bại.");
+            }
+        }, 1500);
+    });
+}
+
+// Sử dụng Promise
+getDataPromise()
+    .then(data => console.log("Promise Resolved:", data))
+    .catch(error => console.log("Promise Rejected:", error));
+
+// Sử dụng async/await
+async function loadData() {
+    try {
+        console.log("Đang chờ dữ liệu với async/await...");
+        const result = await getDataPromise();
+        console.log("Async/Await Resolved:", result);
+    } catch (error) {
+        console.log("Async/Await Rejected:", error);
+    }
+}
+loadData();
+            </code></pre>
+            <button onclick="runPromisesAsyncAwaitExample()">Chạy ví dụ</button>
+            <div class="output" id="async-await-output"></div>
+        </section>
+
+        <section id="dom">
+            <h2>5. Thao tác DOM & Xử lý sự kiện</h2>
+            <p>JavaScript tương tác với HTML (DOM - Document Object Model) để thay đổi nội dung, kiểu dáng và phản ứng với người dùng.</p>
+            <div class="dom-example">
+                <p id="dom-text">Đây là đoạn văn bản ban đầu.</p>
+                <button id="change-text-btn">Thay đổi văn bản</button>
+                <button id="add-item-btn">Thêm mục vào danh sách</button>
+                <ul id="dynamic-list">
+                    <li>Mục 1</li>
+                </ul>
+            </div>
+            <pre><code>
+// Thao tác DOM cơ bản
+const domText = document.getElementById('dom-text');
+const changeBtn = document.getElementById('change-text-btn');
+const addBtn = document.getElementById('add-item-btn');
+const dynamicList = document.getElementById('dynamic-list');
+
+// Xử lý sự kiện
+changeBtn.addEventListener('click', () => {
+    domText.textContent = "Văn bản đã được thay đổi bằng JavaScript!";
+    domText.style.color = "blue";
+});
+
+addBtn.addEventListener('click', () => {
+    const newItem = document.createElement('li');
+    newItem.textContent = `Mục mới ${dynamicList.children.length + 1}`;
+    dynamicList.appendChild(newItem);
+});
+            </code></pre>
+            <p><b>Hãy thử nhấp vào các nút bên trên để xem hiệu ứng!</b></p>
+        </section>
+
+        <section id="fetch">
+            <h2>6. Fetch API</h2>
+            <p>Fetch API cung cấp một giao diện hiện đại và linh hoạt để gọi các tài nguyên mạng (như API).</p>
+            <pre><code>
+// Ví dụ Fetch API (lấy dữ liệu từ một API giả lập công khai)
+const fetchBtn = document.createElement('button');
+fetchBtn.textContent = "Tải dữ liệu từ API (JSONPlaceholder)";
+document.getElementById('fetch-section').appendChild(fetchBtn);
+const fetchOutput = document.createElement('div');
+fetchOutput.className = "output";
+document.getElementById('fetch-section').appendChild(fetchOutput);
+
+fetchBtn.addEventListener('click', async () => {
+    fetchOutput.textContent = "Đang tải...";
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const todo = await response.json();
+        fetchOutput.textContent = `Dữ liệu từ API: Tiêu đề - "${todo.title}", Hoàn thành - ${todo.completed}`;
+    } catch (error) {
+        fetchOutput.textContent = `Lỗi khi tải dữ liệu: ${error.message}`;
+        console.error("Fetch Error:", error);
+    }
+});
+            </code></pre>
+            <p><b>Nhấp vào nút "Tải dữ liệu từ API" bên dưới:</b></p>
+            <div id="fetch-section"></div>
+        </section>
+
+        <section id="modules">
+            <h2>7. Modules (ví dụ khái niệm)</h2>
+            <p>Modules trong JavaScript giúp tổ chức code thành các file riêng biệt, dễ quản lý và tái sử dụng. Đây là ví dụ về cú pháp ES Modules (cần môi trường hỗ trợ như trình duyệt hiện đại hoặc bundler).</p>
+            <pre><code>
+// File: mathUtils.js (trong thư mục js/)
+// export function add(a, b) { return a + b; }
+// export const PI = 3.14159;
+
+// File: main.js (trong thư mục js/)
+// import { add, PI } from './mathUtils.js';
+// console.log("Tổng từ module:", add(10, PI));
+            </code></pre>
+            <p><i>Lưu ý: Để ví dụ này chạy trực tiếp, bạn cần chạy HTML với server cục bộ (ví dụ: Live Server trong VS Code) và đảm bảo script type là "module" (<code style="background-color: #eee; padding: 2px 4px; border-radius: 3px;">&lt;script type="module" src="js/main.js"&gt;&lt;/script&gt;</code>).</i></p>
+            <button onclick="alert('Để thử ví dụ Modules, hãy kiểm tra mã nguồn và chạy trang này qua một local server (ví dụ: tiện ích Live Server trong VS Code) và kiểm tra console log.')">Xem hướng dẫn Modules</button>
+        </section>
+
+        <section id="advanced">
+            <h2>8. Khái niệm nâng cao khác</h2>
+            <ul>
+                <li>**Event Loop:** Cơ chế hoạt động của JavaScript để xử lý các tác vụ bất đồng bộ. (Giải thích chi tiết hơn cần sơ đồ/video).</li>
+                <li>**Hoisting:** Cách các khai báo biến và hàm được "di chuyển" lên đầu phạm vi của chúng.</li>
+                <li>**Scope Chains:** Cách JavaScript tìm kiếm các biến trong các phạm vi lồng nhau.</li>
+                <li>**Decorators, Generators, Proxies:** Các tính năng mạnh mẽ hơn trong ES6+ cho các trường hợp sử dụng cụ thể.</li>
+                <li>**Web Workers:** Chạy JavaScript trong nền mà không làm chặn UI.</li>
+            </ul>
+            <p>Để hiểu sâu hơn, hãy tham khảo các tài liệu chuyên sâu và dự án thực tế.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Dự án của tôi</h2>
+            <p>Để thể hiện kỹ năng JavaScript một cách toàn diện hơn, tôi đã xây dựng các dự án độc lập sau:</p>
+            <ul class="project-links">
+                <li><a href="https://github.com/your-username/todo-app-react" target="_blank">Ứng dụng Todo List (React.js)</a> - Thể hiện khả năng sử dụng Framework hiện đại, quản lý trạng thái.</li>
+                <li><a href="https://github.com/your-username/simple-js-game" target="_blank">Game đơn giản (Vanilla JS)</a> - Thể hiện khả năng thao tác DOM, xử lý game logic thuần túy.</li>
+                <li><a href="https://github.com/your-username/node-rest-api" target="_blank">RESTful API (Node.js/Express)</a> - Thể hiện khả năng phát triển backend với JavaScript.</li>
+                </ul>
+            <p>Vui lòng ghé thăm <a href="https://github.com/your-username" target="_blank">GitHub Profile của tôi</a> để xem mã nguồn và các dự án khác.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 [Tên của bạn]. Được xây dựng để trình diễn JavaScript.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

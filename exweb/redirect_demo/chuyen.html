@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đang chuyển trang...</title>
+</head>
+<body>
+
+    <script>
+        var sogiay = 5;
+        setTimeout("document.location='index.html'", sogiay * 1000);
+        setInterval("document.getElementById('sogaiy').innerHTML=sogiay--", 1000);
+    </script>
+
+    <center>
+        <p>Đã thực thi xong</p>
+        <p><a href='index.html'>Quay lại trang chủ</a></p>
+        <p>Sẽ quay lại trang chủ sau <span id="sogaiy"></span>  giây nữa</p>
+    </center>
+
+</body>
+</html>

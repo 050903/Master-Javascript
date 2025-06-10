@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProClock - Đồng Hồ Thời Gian Thực</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div id="greeting" class="greeting"></div>
+            <div class="controls">
+                <!-- Nút chuyển định dạng 12h/24h -->
+                <button id="format-toggle" class="control-button">24H</button>
+                <!-- Nút chuyển chế độ Sáng/Tối -->
+                <button id="theme-toggle" class="control-button">
+                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="clock-wrapper">
+            <div id="time-display" class="time"></div>
+            <div id="date-display" class="date"></div>
+        </main>
+    </div>
+
+    <!-- Nhúng tệp JavaScript ở cuối body để trang tải nhanh hơn -->
+    <script src="js/main.js"></script>
+</body>
+</html>

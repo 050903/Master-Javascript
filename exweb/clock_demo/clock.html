@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đồng Hồ Kỹ Thuật Số</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            margin: 0;
+        }
+        #dongho {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 3rem;
+            color: #61dafb;
+            background-color: #1e1e1e;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Phần tử này sẽ chứa đồng hồ -->
+    <span id="dongho"></span>
+
+    <script type="text/javascript">
+        function tg() {
+            var currentTime = new Date();
+            var month = currentTime.getMonth() + 1;
+            var day = currentTime.getDate();
+            var year = currentTime.getFullYear();
+            var hour = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+            
+            // Ghi thời gian vào phần tử span
+            document.getElementById("dongho").innerHTML = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds;
+        }
+        
+        // Gọi hàm tg() mỗi giây
+        setInterval("tg()", 1000);
+    </script>
+
+</body>
+</html>
